@@ -1,0 +1,21 @@
+services:
+  stash-db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: stash
+      POSTGRES_DB: stash
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  mailhog:
+    image: mailhog/mailhog
+    platform: linux/amd64
+    ports:
+      - 1025:1025
+      - 8025:8025
+
+volumes:
+  db-data:
+    driver: local

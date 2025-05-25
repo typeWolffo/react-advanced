@@ -1,0 +1,28 @@
+{
+  "name": "react-advanced",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "generate:client": "pnpm run --filter=web generate:client",
+    "db:push": "turbo db:push --filter=api"
+  },
+  "devDependencies": {
+    "turbo": "2.5.3",
+    "@typescript-eslint/eslint-plugin": "8.32.1",
+    "@typescript-eslint/parser": "8.32.1",
+    "eslint": "9.26.0",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3"
+  },
+  "packageManager": "pnpm@10.8.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

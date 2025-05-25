@@ -1,0 +1,33 @@
+advanced.localhost {
+    @websockets {
+        path /api/ws* /tasks*
+        header Connection *Upgrade*
+        header Upgrade websocket
+    }
+
+    handle @websockets {
+        reverse_proxy http://localhost:3000 {
+            header_up Host {upstream_hostport}
+            header_up X-Forwarded-Host {host}
+            header_up X-Forwarded-Proto {scheme}
+        }
+    }
+
+    handle /api/mcp/* {
+        reverse_proxy http://localhost:3002
+    }
+
+    handle /api/* {
+        reverse_proxy http://localhost:3000
+    }
+
+
+
+    handle {
+        reverse_proxy localhost:5173
+    }
+}
+
+mail.advanced.localhost {
+	reverse_proxy localhost:8025
+}

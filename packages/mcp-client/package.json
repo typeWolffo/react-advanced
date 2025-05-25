@@ -1,0 +1,32 @@
+{
+    "name": "@repo/mcp-client",
+    "version": "1.0.0",
+    "description": "MCP client for communication with MCP server",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch"
+    },
+    "keywords": [
+        "mcp",
+        "client",
+        "websocket"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@repo/mcp-types": "workspace:*",
+        "socket.io-client": "^4.8.1"
+    },
+    "devDependencies": {
+        "typescript": "5.8.3",
+        "@types/node": "^22.15.17"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    }
+}
